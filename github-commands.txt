@@ -1,0 +1,7 @@
+cd c:\Users\greed\Desktop\avisual\camera
+git init
+git add .
+git commit -m "Enhanced website with improved hover effects and special features"
+git branch -M main
+git remote add origin https://github.com/Morocam/camera.git
+git push -u origin main

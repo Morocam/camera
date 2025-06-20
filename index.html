@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كاميرا مراقبة شمسية</title>
+    <title>كاميرا مراقبة شمسية بالطاقة الشمسية - توصيل مجاني في المغرب | MoroSecurity</title>
+    <meta name="description" content="كاميرا مراقبة شمسية متطورة بدون كهرباء أو واي فاي. توصيل مجاني، دفع عند الاستلام، ضمان سنة. اطلب الآن!">
+    <meta name="keywords" content="كاميرا مراقبة، كاميرا شمسية، أمان المنزل، المغرب، توصيل مجاني">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #73C21C;
-            --secondary-color: #F7D31E;
+            --secondary-color: #73C21C;
             --accent-color: #2C3E50;
             --text-color: #333333;
-            --light-bg: #F8F9FA;
+            --light-bg: #F1F2F1;
             --white: #FFFFFF;
         }
         
@@ -69,16 +71,17 @@
             100% { transform: rotate(360deg); }
         }
         
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap');
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
             color: var(--text-color);
-            padding-bottom: 80px;
-            background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #e0e6ed, #f0f4f8);
-            background-size: 400% 400%;
-            animation: gradientFlow 15s ease infinite;
+            padding-bottom: 0;
+            background: #F1F2F1;
             position: relative;
             overflow-x: hidden;
+            font-size: 16px;
         }
         
         ::selection {
@@ -95,30 +98,44 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(115, 194, 28, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(247, 211, 30, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(44, 62, 80, 0.05) 0%, transparent 70%);
+                radial-gradient(circle at 20% 20%, rgba(115, 194, 28, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(115, 194, 28, 0.08) 0%, transparent 50%);
             z-index: -1;
-            animation: pulse 10s ease-in-out infinite;
         }
 
+        .company-logo .logo-circle {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .trust-badges .badge {
+            font-size: 0.8rem;
+            padding: 8px 12px;
+        }
+        
         .notice-bar {
-            background: linear-gradient(90deg, var(--secondary-color), #f7e07d);
-            color: var(--accent-color);
-            font-weight: bold;
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
             text-align: center;
             padding: 1rem 0;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            box-shadow: 0 2px 15px rgba(247, 211, 30, 0.2);
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 15px rgba(115, 194, 28, 0.2);
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
         }
         
         .notice-bar:hover {
-            background: linear-gradient(90deg, #f7e07d, var(--secondary-color));
-            box-shadow: 0 4px 20px rgba(247, 211, 30, 0.3);
+            background: #5da017;
+            box-shadow: 0 4px 20px rgba(115, 194, 28, 0.3);
             letter-spacing: 1.5px;
         }
 
@@ -170,40 +187,14 @@
 
         .new-hero {
             position: relative;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            padding: 40px 0;
+            text-align: center;
+            padding: 20px 1rem;
             margin-bottom: 1rem;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            animation: fadeInUp 1.2s ease-out;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2.5rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1), inset 0 2px 10px rgba(255,255,255,0.5);
-            max-width: 900px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transform: translateY(0);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-image: linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
-        }
-
-        .hero-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-
         .hero-title {
-            font-size: 3.2rem;
-            font-weight: 800;
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 2rem;
             text-align: center;
             position: relative;
@@ -215,7 +206,7 @@
             background-clip: text;
             color: transparent;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             transform: perspective(500px) translateZ(0);
             transition: all 0.3s ease;
             animation: textShine 3s infinite linear;
@@ -250,7 +241,7 @@
         .hero-image-container {
             position: relative;
             width: 100%;
-            height: 320px;
+            height: 450px;
             margin-bottom: 2rem;
             animation: float 8s ease-in-out infinite;
             filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
@@ -283,11 +274,10 @@
             align-items: center;
             margin-bottom: 2rem;
             position: relative;
-            animation: pulse 2s infinite;
         }
         
         .price-amount {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             color: var(--accent-color);
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -297,27 +287,35 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: relative;
             display: inline-block;
-            padding: 0 1rem;
+            padding: 0 0.5rem;
         }
         
         .price-discount {
             position: absolute;
-            top: -15px;
-            right: -30px;
+            top: -12px;
+            right: -25px;
             background: var(--secondary-color);
             color: var(--accent-color);
             font-weight: bold;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
             transform: rotate(15deg);
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         .hero-cta-container {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
             animation: fadeInUp 1.5s ease-out;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-cta {
@@ -367,33 +365,466 @@
             left: 100%;
         }
 
+        /* Mobile First Approach */
         @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px;
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* Header Mobile */
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+            
+            .company-logo .logo-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .trust-badges {
+                display: none;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+            
+            .contact-info a:first-child {
+                display: none;
+            }
+            
+            /* Notice Bar Mobile */
+            .notice-bar {
+                font-size: 0.95rem;
+                padding: 10px 15px;
+                line-height: 1.4;
+                font-weight: 600;
+            }
+            
+            /* Hero Mobile */
             .new-hero {
-                min-height: 60vh;
-                padding: 30px 0;
+                padding: 10px 0;
+                min-height: auto;
             }
-
+            
             .hero-content {
-                padding: 2rem;
-                margin: 1rem;
+                padding: 1rem 0.8rem;
+                margin: 0.5rem;
+                border-radius: 15px;
+                max-width: 100%;
             }
-
+            
             .hero-title {
-                font-size: 2.4rem;
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+                line-height: 1.3;
+                font-weight: 700;
             }
-
+            
             .hero-image-container {
-                height: 250px;
+                height: 140px;
+                margin-bottom: 0.8rem;
             }
-
+            
+            .featured-product {
+                text-align: center;
+            }
+            
+            .featured-img {
+                max-height: 120px;
+                margin-bottom: 1rem;
+            }
+            
+            .mini-features {
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            
             .hero-subheadline {
-                font-size: 1.3rem;
-                padding: 0 1rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.8rem;
+                line-height: 1.3;
+                padding: 0;
             }
-
+            
+            .urgency-banner {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+                margin: 0.8rem 0;
+            }
+            
+            .price-tag {
+                margin-bottom: 1rem;
+            }
+            
+            .old-price {
+                font-size: 0.8rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .price-amount {
+                font-size: 1.6rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .price-discount {
+                font-size: 0.7rem;
+                padding: 2px 8px;
+                top: -10px;
+                right: -20px;
+            }
+            
+            .payment-options {
+                margin-top: 0.3rem;
+            }
+            
+            .payment-options small {
+                font-size: 0.75rem;
+            }
+            
             .hero-cta {
-                padding: 15px 40px;
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 1rem;
+                border-radius: 20px;
+                margin-top: 1rem;
+            }
+            
+            .hero-cta-container {
+                margin-top: 1.5rem;
+            }
+            
+            /* Features Mobile */
+            .features-section {
+                padding: 1.5rem 1rem;
+                margin: 0.5rem;
+                border-radius: 20px;
+                text-align: center;
+            }
+            
+            .features-section h2 {
+                font-size: 1.7rem;
+                margin-bottom: 1.5rem;
+                text-align: center;
+                font-weight: 700;
+            }
+            
+            .feature-item {
+                padding: 1rem;
+                margin-bottom: 1rem;
+                border-radius: 15px;
+                text-align: center;
+            }
+            
+            .feature-item .d-flex {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .feature-icon {
+                width: 45px;
+                height: 45px;
+                margin-bottom: 1rem;
+                margin-left: 0;
+            }
+            
+            .feature-icon i {
                 font-size: 1.2rem;
+            }
+            
+            .feature-text {
+                text-align: center;
+            }
+            
+            .feature-text h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+                text-align: center;
+                font-weight: 600;
+            }
+            
+            .feature-text p {
+                font-size: 0.95rem;
+                margin-bottom: 0;
+                text-align: center;
+                line-height: 1.5;
+            }
+            
+            /* Trust Items Mobile */
+            .trust-item {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .trust-item i {
+                font-size: 2rem;
+            }
+            
+            .trust-item h6 {
+                font-size: 0.9rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .trust-item small {
+                font-size: 0.75rem;
+            }
+            
+            /* Solar Section Mobile */
+            .bg-light {
+                padding: 2rem 0;
+                text-align: center;
+            }
+            
+            .bg-light h2 {
+                font-size: 1.6rem;
+                text-align: center;
+            }
+            
+            .lead {
+                font-size: 1rem;
+                text-align: center;
+            }
+            
+            .feature-box {
+                padding: 1rem;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            
+            .feature-box h4 {
+                font-size: 1rem;
+                text-align: center;
+            }
+            
+            /* CTA Section Mobile */
+            .list-unstyled {
+                text-align: center;
+            }
+            
+            .list-unstyled li {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+                padding: 0.5rem;
+                background: rgba(255,255,255,0.8);
+                border-radius: 10px;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            /* Testimonials Mobile */
+            .customer-avatar .avatar-circle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .card-body {
+                padding: 1rem;
+            }
+            
+            .card-body p {
+                font-size: 0.9rem;
+            }
+            
+            .card-body h6 {
+                font-size: 0.9rem;
+            }
+            
+            .card-body small {
+                font-size: 0.75rem;
+            }
+            
+            /* Gallery Mobile */
+            .gallery-item {
+                margin-bottom: 1rem;
+            }
+            
+            .gallery-item img {
+                height: 200px;
+                border-radius: 10px;
+            }
+            
+            /* FAQ Mobile */
+            .accordion-item {
+                border-radius: 10px;
+                margin-bottom: 0.5rem;
+            }
+            
+            .accordion-button {
+                font-size: 0.9rem;
+                padding: 1rem;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .accordion-body {
+                font-size: 0.9rem;
+                padding: 1rem;
+                text-align: center;
+            }
+            
+            /* Contact Mobile */
+            .contact-card {
+                margin-bottom: 1rem;
+                padding: 1rem;
+                text-align: center;
+            }
+            
+            .contact-card h5 {
+                font-size: 1rem;
+                text-align: center;
+            }
+            
+            .company-info {
+                margin-top: 1rem;
+                text-align: center;
+            }
+            
+            .company-logo-large .logo-circle-large {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            /* Certifications Mobile */
+            .cert-badge {
+                padding: 0.5rem;
+                margin: 0.25rem;
+                text-align: center;
+            }
+            
+            .cert-badge i {
+                font-size: 1.2rem;
+            }
+            
+            .cert-badge small {
+                font-size: 0.7rem;
+                text-align: center;
+            }
+            
+            /* Sticky CTA Mobile */
+            .sticky-cta {
+                padding: 6px 10px;
+            }
+            
+            .sticky-cta .cta-button {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                min-height: 40px;
+                border-radius: 18px;
+            }
+            
+            .cta-price {
+                font-size: 0.75rem;
+                padding: 2px 6px;
+            }
+            
+            .cta-text {
+                font-size: 0.8rem;
+            }
+            
+            .sticky-cta .fab {
+                font-size: 0.9rem;
+            }
+            
+            .sticky-cta .fas {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content {
+                padding: 0.8rem 0.6rem;
+                margin: 0.3rem;
+            }
+            
+            .hero-title {
+                font-size: 1.6rem;
+                margin-bottom: 0.6rem;
+                font-weight: 700;
+            }
+            
+            .hero-image-container {
+                height: 120px;
+                margin-bottom: 0.6rem;
+            }
+            
+            .hero-subheadline {
+                font-size: 0.85rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .urgency-banner {
+                padding: 5px 10px;
+                font-size: 0.75rem;
+                margin: 0.6rem 0;
+            }
+            
+            .old-price {
+                font-size: 0.75rem;
+            }
+            
+            .price-amount {
+                font-size: 1.4rem;
+            }
+            
+            .price-discount {
+                font-size: 0.65rem;
+                padding: 2px 6px;
+            }
+            
+            .payment-options small {
+                font-size: 0.7rem;
+            }
+            
+            .hero-cta {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .features-section h2 {
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+            
+            .feature-item {
+                padding: 0.8rem;
+            }
+            
+            .trust-item {
+                padding: 0.8rem;
+            }
+            
+            .modal-dialog {
+                margin: 0.5rem;
+            }
+            
+            .modal-body {
+                padding: 1rem;
+            }
+            
+            .camera-option label {
+                padding: 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .form-control {
+                height: 42px;
+                font-size: 0.85rem;
+            }
+            
+            .btn-primary {
+                padding: 10px 15px;
+                font-size: 0.9rem;
             }
         }
 
@@ -505,7 +936,9 @@
         .feature-text h4 {
             color: var(--accent-color);
             font-weight: 600;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
+            letter-spacing: 0.2px;
         }
 
         .feature-item:hover .feature-text h4 {
@@ -514,8 +947,9 @@
 
         .feature-text p {
             color: var(--text-color);
-            font-size: 1.1rem;
+            font-size: 1rem;
             opacity: 0.9;
+            line-height: 1.6;
         }
 
         .solar-section img {
@@ -648,41 +1082,58 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 15px;
+            padding: 8px 12px;
             z-index: 1000;
-            text-align: center;
+            background: transparent;
+        }
+
+        .sticky-cta .d-flex {
+            gap: 8px;
+            max-width: 100%;
         }
 
         .sticky-cta .cta-button {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 15px 40px;
-            border-radius: 30px;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
             border: none;
-            font-size: 1.2em;
+            font-size: 0.85rem;
+            font-weight: 600;
             transition: all 0.3s ease;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(115, 194, 28, 0.3);
-            animation: pulse 2s infinite;
+            flex: 1;
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+            gap: 6px;
+            min-height: 44px;
+            text-decoration: none;
         }
         
         .cta-price {
             background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.8rem;
         }
         
         .cta-text {
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .sticky-cta .cta-button:hover {
+            background: #5da017;
+            transform: translateY(-1px);
+        }
+        
+        .sticky-cta .fab {
+            font-size: 1rem;
+        }
+        
+        .sticky-cta .fas {
+            font-size: 0.9rem;
         }
 
         @keyframes pulse {
@@ -1030,6 +1481,256 @@
             backdrop-filter: blur(5px);
         }
         
+        /* Professional elements */
+        .customer-avatar .avatar-circle {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .bg-pink {
+            background: #e91e63 !important;
+        }
+        
+        .cert-badge {
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cert-badge:hover {
+            transform: translateY(-3px);
+        }
+        
+        .contact-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Footer Styles */
+        .footer-section {
+            background: var(--accent-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .footer-desc {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .footer-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-divider {
+            border-color: rgba(255,255,255,0.2);
+            margin: 2rem 0 1rem;
+        }
+        
+        .footer-bottom {
+            padding-top: 1rem;
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        
+        .footer-badges .badge {
+            font-size: 0.75rem;
+            padding: 5px 8px;
+        }
+        
+        /* Moroccan Market Styles */
+        .urgency-banner {
+            color: #ff4444;
+            padding: 0;
+            margin: 1rem 0;
+            font-weight: bold;
+            background: none;
+            border-radius: 0;
+            text-shadow: none;
+        }
+        
+        .old-price {
+            font-size: 0.9rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 0.3rem;
+        }
+        
+        .payment-options {
+            margin-top: 0.3rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .payment-options small {
+            font-size: 0.8rem;
+        }
+        
+        .morocco-benefits .benefit-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-card i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            min-width: 30px;
+        }
+        
+        .benefit-card h6 {
+            margin: 0;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        
+        .guarantee-section {
+            text-align: center;
+        }
+        
+        .guarantee-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(45deg, var(--primary-color), #8ed33f);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(115, 194, 28, 0.3);
+        }
+        
+        .guarantee-badge i {
+            font-size: 2rem;
+        }
+        
+        .cod-highlight {
+            border: 2px solid var(--primary-color) !important;
+            background: linear-gradient(135deg, rgba(115, 194, 28, 0.1), rgba(115, 194, 28, 0.05)) !important;
+            position: relative;
+        }
+        
+        .cod-highlight::before {
+            content: '★';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--primary-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 2rem 0 1rem;
+                text-align: center;
+            }
+            
+            .footer-contact {
+                align-items: center;
+            }
+            
+            .footer-bottom {
+                text-align: center;
+            }
+            
+            .footer-bottom .row > div {
+                margin-bottom: 1rem;
+            }
+            
+            .footer-badges {
+                justify-content: center;
+            }
+        }
+        
         .scroll-indicator.visible {
             opacity: 1;
         }
@@ -1067,12 +1768,14 @@
         }
 
         .features-section h2 {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: var(--accent-color);
             margin-bottom: 2.5rem;
             text-align: center;
             position: relative;
             padding-bottom: 1rem;
+            letter-spacing: 0.3px;
         }
 
         .features-section h2::after {
@@ -1120,6 +1823,109 @@
             transform: scale(1);
             opacity: 1;
         }
+        
+        /* Mobile Sliders - RTL Fixed */
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px;
+            direction: ltr;
+        }
+        
+        .slider-track {
+            display: flex;
+            transition: transform 0.3s ease;
+            width: 300%;
+            transform: translateX(0);
+        }
+        
+        .slide {
+            flex: 0 0 33.333%;
+            padding: 0 10px;
+            direction: rtl;
+        }
+        
+        .slider-dots {
+            margin-top: 15px;
+            direction: rtl;
+        }
+        
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dot.active, .dot:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .gallery-slider {
+            overflow: hidden;
+            position: relative;
+            direction: ltr;
+        }
+        
+        .gallery-track {
+            display: flex;
+            transition: transform 0.3s ease;
+            width: 300%;
+            transform: translateX(0);
+        }
+        
+        .gallery-slide {
+            flex: 0 0 33.333%;
+            padding: 0 10px;
+            direction: rtl;
+        }
+        
+        /* Featured Product Section */
+        .featured-product {
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .featured-img {
+            max-height: 150px;
+            width: 100%;
+            object-fit: contain;
+        }
+        
+        .featured-product h4 {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mini-features {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+        
+        .mini-features i {
+            margin-left: 0.3rem;
+        }
+        
+        .featured-price-mini .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.8rem;
+        }
+        
+        .featured-price-mini .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
@@ -1129,9 +1935,62 @@
         <div class="loader-text">جاري التحميل...</div>
     </div>
     
+    <!-- Professional Header -->
+    <header class="bg-white shadow-sm py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 d-none d-md-block">
+                    <div class="d-flex align-items-center">
+                        <div class="company-logo me-3">
+                            <div class="logo-circle">
+                                <i class="fas fa-video text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 fw-bold text-dark">MoroSecurity</h5>
+                            <small class="text-muted">أنظمة الأمان المتطورة</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 d-md-none text-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="company-logo me-2">
+                            <div class="logo-circle">
+                                <i class="fas fa-video text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 fw-bold text-dark">MoroSecurity</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-none d-md-block text-center">
+                    <div class="trust-badges">
+                        <span class="badge bg-success me-1"><i class="fas fa-shield-alt"></i> موثوق</span>
+                        <span class="badge bg-primary me-1"><i class="fas fa-award"></i> معتمد</span>
+                        <span class="badge bg-warning"><i class="fas fa-star"></i> 4.9/5</span>
+                    </div>
+                </div>
+                <div class="col-md-4 d-none d-md-block text-end">
+                    <div class="contact-info">
+                        <a href="tel:+212600000000" class="text-decoration-none me-2">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span class="fw-bold">0600-000-000</span>
+                        </a>
+                        <a href="https://wa.me/212600000000" class="btn btn-success btn-sm">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
     <!-- Notice Bar -->
     <div class="notice-bar">
-        التوصيل بالمجان ولن تدفع حتى يصلك المنتج لباب المنزل
+        <i class="fas fa-truck me-2"></i>
+        توصيل مجاني + دفع عند الاستلام + ضمان سنة
+        <i class="fas fa-shield-alt ms-2"></i>
     </div>
 
     <!-- Particles Background -->
@@ -1147,25 +2006,23 @@
     
     <!-- New Hero Section -->
     <section class="new-hero">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10">
-                    <h1 class="hero-title">كاميرا مراقبة شمسية</h1>
-                    <div class="hero-content">
-                        <div class="hero-image-container">
-                            <img src="pictures/pan.png" alt="كاميرا مراقبة شمسية">
-                        </div>
-                        <p class="hero-subheadline">👋👋هاد الكاميرة كتخدم بلا ويفي بلا ضوء! غير بالكارت سيم .</p>
-                        <div class="price-tag">
-                            <span class="price-amount">1149 درهم</span>
-                            <span class="price-discount">عرض خاص</span>
-                        </div>
-                        <div class="hero-cta-container">
-                            <button class="hero-cta" data-bs-toggle="modal" data-bs-target="#orderModal">أطلب الآن</button>
-                        </div>
-                    </div>
-                </div>
+        <div class="hero-image-container">
+            <img src="PICTURES/pan.png" alt="كاميرا مراقبة شمسية">
+        </div>
+        <div class="urgency-banner">
+            <i class="fas fa-fire text-danger"></i>
+            <span>عرض محدود - باقي فقط <strong id="stock-count">23</strong> قطعة!</span>
+        </div>
+        <div class="price-tag">
+            <div class="old-price">السعر العادي: <span>1499 درهم</span></div>
+            <span class="price-amount">1149 درهم</span>
+            <span class="price-discount">وفر 350 درهم</span>
+            <div class="payment-options">
+                <small>💳 الدفع عند الاستلام فقط - لا تدفع شيئاً الآن!</small>
             </div>
+        </div>
+        <div class="hero-cta-container">
+            <button class="hero-cta" data-bs-toggle="modal" data-bs-target="#orderModal">أطلب الآن</button>
         </div>
     </section>
 
@@ -1203,7 +2060,7 @@
 
                         <!-- Middle image -->
                         <div class="text-center mb-4">
-                            <img src="pictures/all.png" alt="جميع المميزات" class="img-fluid rounded shadow-lg" style="max-height: 300px;">
+                            <img src="PICTURES/all.png" alt="جميع المميزات" class="img-fluid rounded shadow-lg" style="max-height: 300px;">
                         </div>
 
                         <!-- Last two features -->
@@ -1244,7 +2101,7 @@
                     <h2 class="mb-4">حماية مستمرة بدون كهرباء</h2>
                     <p class="lead mb-4">بفضل ألواح شمسية عالية الأداء، تضمن الشحن حتى وسط أيام الغيوم الكثيفة أو ضوء الشمس الخافت. بلا أي حاجة للكهرباء، تبقى مشحونة طوال النهار وتعمل بشكل مستقل.</p>
                     <div class="mb-5">
-                        <img src="pictures/alarm.png" alt="نظام الإنذار" class="img-fluid rounded shadow-lg" style="max-height: 300px;">
+                        <img src="PICTURES/alarm.png" alt="نظام الإنذار" class="img-fluid rounded shadow-lg" style="max-height: 300px;">
                     </div>
                     <div class="row g-4">
                 <div class="col-md-6">
@@ -1265,6 +2122,34 @@
         </div>
     </section>
 
+    <!-- Featured Product Section -->
+    <section class="py-4 bg-white">
+        <div class="container">
+            <div class="featured-product">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <img src="PICTURES/pan.png" alt="الكاميرة المتطورة" class="featured-img">
+                    </div>
+                    <div class="col-md-5">
+                        <h4>الكاميرة المتطورة</h4>
+                        <p class="mb-2">3 عدسات + 2 ألواح شمسية + هدية</p>
+                        <div class="mini-features">
+                            <span><i class="fas fa-moon"></i> رؤية ليلية</span>
+                            <span><i class="fas fa-search-plus"></i> تقريب 10X</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="featured-price-mini">
+                            <small class="old-price">1499 درهم</small>
+                            <div class="price">1149 درهم</div>
+                        </div>
+                        <button class="btn btn-success btn-lg mt-3 px-4 py-2" data-bs-toggle="modal" data-bs-target="#orderModal" style="font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);">اطلب الآن</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-5 text-center">
         <div class="container">
@@ -1272,14 +2157,217 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="mb-4">
-                        <img src="pictures/transport.webp" alt="توصيل سريع" class="img-fluid rounded shadow-lg" style="max-height: 400px;">
+                        <img src="PICTURES/transport.webp" alt="توصيل سريع" class="img-fluid rounded shadow-lg" style="max-height: 400px;">
                     </div>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-truck-fast"></i> توصيل مجاني في جميع أنحاء المغرب</li>
-                        <li><i class="fas fa-credit-card"></i> الدفع عند الاستلام — بلا بطاقة، بلا تعقيدات</li>
-                        <li><i class="fas fa-gift"></i> كارت ميموار مجاناً مع كل كاميرا</li>
-                        <li><i class="fas fa-clock"></i> الكمية محدودة — سارع بالطلب قبل ما يسالي المخزون!</li>
-                    </ul>
+                    <div class="morocco-benefits">
+                        <div class="row g-3 justify-content-center">
+                            <div class="col-md-6">
+                                <div class="benefit-card">
+                                    <i class="fas fa-truck-fast"></i>
+                                    <div>
+                                        <h6>توصيل مجاني</h6>
+                                        <small>جميع مدن المغرب (الرباط، الدار البيضاء، فاس، مراكش...)</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="benefit-card cod-highlight">
+                                    <i class="fas fa-hand-holding-usd"></i>
+                                    <div>
+                                        <h6>دفع عند الاستلام فقط</h6>
+                                        <small>لا تدفع شيئاً حتى تستلم المنتج وتتأكد منه</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="guarantee-section mt-4">
+                            <div class="guarantee-badge">
+                                <i class="fas fa-certificate"></i>
+                                <div>
+                                    <strong>ضمان سنة كاملة + إرجاع مجاني خلال 15 يوم</strong>
+                                    <br><small>معتمد من وزارة التجارة المغربية</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-3 col-6">
+                                <div class="trust-item p-3 bg-white rounded shadow-sm">
+                                    <i class="fas fa-lock text-success fs-3 mb-2"></i>
+                                    <h6 class="fw-bold mb-1">دفع آمن</h6>
+                                    <small class="text-muted">SSL محمي</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="trust-item p-3 bg-white rounded shadow-sm">
+                                    <i class="fas fa-undo text-primary fs-3 mb-2"></i>
+                                    <h6 class="fw-bold mb-1">إرجاع مجاني</h6>
+                                    <small class="text-muted">15 يوم</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="trust-item p-3 bg-white rounded shadow-sm">
+                                    <i class="fas fa-users text-warning fs-3 mb-2"></i>
+                                    <h6 class="fw-bold mb-1">+2500 عميل</h6>
+                                    <small class="text-muted">راضي تماماً</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="trust-item p-3 bg-white rounded shadow-sm">
+                                    <i class="fas fa-headset text-info fs-3 mb-2"></i>
+                                    <h6 class="fw-bold mb-1">دعم 24/7</h6>
+                                    <small class="text-muted">فريق محترف</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">آراء عملائنا</h2>
+            <!-- Mobile Slider -->
+            <div class="d-md-none">
+                <div class="slider-container">
+                    <div class="slider-track" id="testimonials-track">
+                        <div class="slide">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body text-center">
+                                    <div class="customer-avatar mb-3">
+                                        <div class="avatar-circle">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <p>"كاميرا ممتازة! جودة عالية وتعمل بشكل ممتاز حتى في الليل"</p>
+                                    <h6>أحمد - الرباط</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body text-center">
+                                    <div class="customer-avatar mb-3">
+                                        <div class="avatar-circle bg-pink">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <p class="fst-italic">"التوصيل سريع والمنتج مطابق للوصف. أنصح بها بشدة!"</p>
+                                    <h6 class="fw-bold">فاطمة ز.</h6>
+                                    <small class="text-muted">عميلة منذ 2022 - الدار البيضاء</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body text-center">
+                                    <div class="customer-avatar mb-3">
+                                        <div class="avatar-circle bg-info">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <p class="fst-italic">"بعد 3 أشهر من الاستعمال، مازالت تعمل بكفاءة عالية"</p>
+                                    <h6 class="fw-bold">يوسف ع.</h6>
+                                    <small class="text-muted">عميل منذ 2023 - مراكش</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots text-center" id="testimonials-dots">
+                    <span class="dot active" onclick="currentSlide(1, 'testimonials')"></span>
+                    <span class="dot" onclick="currentSlide(2, 'testimonials')"></span>
+                    <span class="dot" onclick="currentSlide(3, 'testimonials')"></span>
+                </div>
+            </div>
+            <!-- Desktop Grid -->
+            <div class="row g-4 d-none d-md-flex">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="customer-avatar mb-3">
+                                <div class="avatar-circle">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p>"كاميرا ممتازة! جودة عالية وتعمل بشكل ممتاز حتى في الليل"</p>
+                            <h6>أحمد - الرباط</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="customer-avatar mb-3">
+                                <div class="avatar-circle bg-pink">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="fst-italic">"التوصيل سريع والمنتج مطابق للوصف. أنصح بها بشدة!"</p>
+                            <h6 class="fw-bold">فاطمة ز.</h6>
+                            <small class="text-muted">عميلة منذ 2022 - الدار البيضاء</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="customer-avatar mb-3">
+                                <div class="avatar-circle bg-info">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="fst-italic">"بعد 3 أشهر من الاستعمال، مازالت تعمل بكفاءة عالية"</p>
+                            <h6 class="fw-bold">يوسف ع.</h6>
+                            <small class="text-muted">عميل منذ 2023 - مراكش</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1289,21 +2377,43 @@
     <section class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5">معرض الصور</h2>
-            <div class="gallery-container" id="lightgallery">
+            <!-- Mobile Slider -->
+            <div class="d-md-none">
+                <div class="gallery-slider">
+                    <div class="gallery-track" id="gallery-track">
+                        <div class="gallery-slide">
+                            <img src="PICTURES/1.jpeg" alt="صورة الكاميرا 1" class="img-fluid rounded shadow-lg" style="height: 250px; width: 100%; object-fit: cover;">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="PICTURES/2.jpeg" alt="صورة الكاميرا 2" class="img-fluid rounded shadow-lg" style="height: 250px; width: 100%; object-fit: cover;">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="PICTURES/3.jpg" alt="صورة الكاميرا 3" class="img-fluid rounded shadow-lg" style="height: 250px; width: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-dots text-center" id="gallery-dots">
+                    <span class="dot active" onclick="currentSlide(1, 'gallery')"></span>
+                    <span class="dot" onclick="currentSlide(2, 'gallery')"></span>
+                    <span class="dot" onclick="currentSlide(3, 'gallery')"></span>
+                </div>
+            </div>
+            <!-- Desktop Grid -->
+            <div class="gallery-container d-none d-md-block" id="lightgallery">
                 <div class="row g-4 justify-content-center">
                     <div class="col-md-4">
-                        <a href="pictures/1.jpeg" class="gallery-item">
-                            <img src="pictures/1.jpeg" alt="صورة الكاميرا 1" class="img-fluid rounded shadow-lg">
+                        <a href="PICTURES/1.jpeg" class="gallery-item">
+                            <img src="PICTURES/1.jpeg" alt="صورة الكاميرا 1" class="img-fluid rounded shadow-lg">
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="pictures/2.jpeg" class="gallery-item">
-                            <img src="pictures/2.jpeg" alt="صورة الكاميرا 2" class="img-fluid rounded shadow-lg">
+                        <a href="PICTURES/2.jpeg" class="gallery-item">
+                            <img src="PICTURES/2.jpeg" alt="صورة الكاميرا 2" class="img-fluid rounded shadow-lg">
                         </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="pictures/3.jpg" class="gallery-item">
-                            <img src="pictures/3.jpg" alt="صورة الكاميرا 3" class="img-fluid rounded shadow-lg">
+                        <a href="PICTURES/3.jpg" class="gallery-item">
+                            <img src="PICTURES/3.jpg" alt="صورة الكاميرا 3" class="img-fluid rounded shadow-lg">
                         </a>
                     </div>
                 </div>
@@ -1311,12 +2421,138 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">الأسئلة الشائعة</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    هل تعمل الكاميرا بدون إنترنت؟
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نعم، تعمل بالكارت سيم 4G بدون حاجة للوايفاي أو الإنترنت
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    كم مدة عمل البطارية؟
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    تعمل حتى 30 يوم بدون شحن بفضل الألواح الشمسية
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    هل يمكن مراقبتها من الهاتف؟
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نعم، عبر تطبيق مجاني على الهاتف مع إشعارات فورية
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    ما هي مدة الضمان؟
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    ضمان سنة كاملة مع إمكانية الإرجاع خلال 15 يوم
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4 col-12 text-center text-md-start">
+                    <div class="footer-brand">
+                        <div class="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
+                            <div class="footer-logo me-2">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h5 class="mb-0">MoroSecurity</h5>
+                        </div>
+                        <p class="footer-desc">رائدون في أنظمة الأمان الشمسية المتطورة</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6">
+                    <h6 class="footer-title">روابط سريعة</h6>
+                    <ul class="footer-links">
+                        <li><a href="#hero">الرئيسية</a></li>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#gallery">معرض الصور</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-6">
+                    <h6 class="footer-title">تواصل معنا</h6>
+                    <div class="footer-contact">
+                        <a href="https://wa.me/212600000000" class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>واتساب</span>
+                        </a>
+                        <a href="tel:+212600000000" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0600-000-000</span>
+                        </a>
+                        <a href="mailto:info@example.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>البريد الإلكتروني</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-12 text-center text-md-start">
+                        <p class="copyright">© 2024 MoroSecurity. جميع الحقوق محفوظة</p>
+                    </div>
+                    <div class="col-md-6 col-12 text-center text-md-end">
+                        <div class="footer-badges">
+                            <span class="badge bg-success me-1"><i class="fas fa-shield-alt"></i> آمن</span>
+                            <span class="badge bg-primary"><i class="fas fa-star"></i> 4.9/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Sticky CTA Button -->
     <div class="sticky-cta">
-        <button class="cta-button" data-bs-toggle="modal" data-bs-target="#orderModal">
-            <span class="cta-price">1149 درهم</span>
-            <span class="cta-text">أطلب الآن</span>
-        </button>
+        <div class="d-flex gap-2 justify-content-center">
+            <a href="https://wa.me/212600000000?text=مرحبا، أريد طلب كاميرا المراقبة الشمسية" class="cta-button" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <i class="fab fa-whatsapp"></i>
+                <span class="cta-text">واتساب</span>
+            </a>
+            <button class="cta-button" data-bs-toggle="modal" data-bs-target="#orderModal">
+                <span class="cta-price">1149 درهم</span>
+                <span class="cta-text">أطلب الآن</span>
+            </button>
+        </div>
     </div>
     
     <!-- Scroll to top button -->
@@ -1600,15 +2836,69 @@
                 });
             });
             
-            // Add hover sound effect to buttons
-            const buttons = document.querySelectorAll('.hero-cta, .cta-button');
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    const hoverSound = new Audio('data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA/+M4wAAAAAAAAAAAAEluZm8AAAAPAAAAAwAAAbAAkJCQkJCQkJCQkJCQkJCQwMDAwMDAwMDAwMDAwMDAwMD//////////////////8AAAA5TEFNRTMuMTAwAZYAAAAAAAAAABQ4JAMGQgAAOAAABrCyZvvCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/jOMAAAANIAYAAAExBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/jOMAAAANIAYAAAFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV');
-                    hoverSound.volume = 0.2;
-                    hoverSound.play();
-                });
-            });
+            // Mobile Slider Functions
+            let currentTestimonialSlide = 1;
+            let currentGallerySlide = 1;
+            
+            window.currentSlide = function(n, type) {
+                if (type === 'testimonials') {
+                    showTestimonialSlide(currentTestimonialSlide = n);
+                } else if (type === 'gallery') {
+                    showGallerySlide(currentGallerySlide = n);
+                }
+            }
+            
+            function showTestimonialSlide(n) {
+                const track = document.getElementById('testimonials-track');
+                const dots = document.querySelectorAll('#testimonials-dots .dot');
+                
+                if (n > 3) currentTestimonialSlide = 1;
+                if (n < 1) currentTestimonialSlide = 3;
+                
+                track.style.transform = `translateX(-${(currentTestimonialSlide - 1) * 33.333}%)`;
+                
+                dots.forEach(dot => dot.classList.remove('active'));
+                if (dots[currentTestimonialSlide - 1]) {
+                    dots[currentTestimonialSlide - 1].classList.add('active');
+                }
+            }
+            
+            function showGallerySlide(n) {
+                const track = document.getElementById('gallery-track');
+                const dots = document.querySelectorAll('#gallery-dots .dot');
+                
+                if (n > 3) currentGallerySlide = 1;
+                if (n < 1) currentGallerySlide = 3;
+                
+                track.style.transform = `translateX(-${(currentGallerySlide - 1) * 33.333}%)`;
+                
+                dots.forEach(dot => dot.classList.remove('active'));
+                if (dots[currentGallerySlide - 1]) {
+                    dots[currentGallerySlide - 1].classList.add('active');
+                }
+            }
+            
+            // Auto-slide for mobile
+            setInterval(() => {
+                if (window.innerWidth <= 768) {
+                    currentTestimonialSlide++;
+                    if (currentTestimonialSlide > 3) currentTestimonialSlide = 1;
+                    showTestimonialSlide(currentTestimonialSlide);
+                    
+                    currentGallerySlide++;
+                    if (currentGallerySlide > 3) currentGallerySlide = 1;
+                    showGallerySlide(currentGallerySlide);
+                }
+            }, 4000);
+            
+            // Stock countdown
+            let stockCount = 23;
+            setInterval(() => {
+                if (Math.random() < 0.3 && stockCount > 15) {
+                    stockCount--;
+                    document.getElementById('stock-count').textContent = stockCount;
+                }
+            }, 30000);
         });
     </script>
 </body>

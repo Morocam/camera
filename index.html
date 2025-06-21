@@ -2645,6 +2645,7 @@
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css">
+    <script src="api.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Hide preloader
@@ -2762,55 +2763,51 @@
             });
             
             // Form submission
-            document.getElementById('orderForm').addEventListener('submit', function(e) {
+            document.getElementById('orderForm').addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
-                // Validate phone number
-                const phoneInput = document.getElementById('number');
-                const phoneValue = phoneInput.value;
-                
-                if (!/^[0-9]{10}$/.test(phoneValue)) {
-                    phoneInput.classList.add('is-invalid');
-                    return;
-                }
                 
                 // Get form data
                 const formData = {
-                    name: document.getElementById('name').value,
-                    phone: phoneValue,
-                    city: document.getElementById('city').value,
+                    name: document.getElementById('name').value.trim(),
+                    phone: document.getElementById('number').value.trim(),
+                    city: document.getElementById('city').value.trim(),
                     cameraType: document.querySelector('input[name="cameraType"]:checked').value
                 };
                 
-                // Save to localStorage for demo purposes
-                const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-                orders.push({
-                    ...formData,
-                    date: new Date().toISOString(),
-                    status: 'new'
-                });
-                localStorage.setItem('orders', JSON.stringify(orders));
-                
-                // Send message to admin page if open
-                try {
-                    if (window.opener) {
-                        window.opener.postMessage({
-                            type: 'newOrder',
-                            order: formData
-                        }, '*');
-                    }
-                } catch (err) {
-                    console.log('Admin page not open');
+                // Validate form data
+                const errors = api.validateOrder(formData);
+                if (errors.length > 0) {
+                    alert('خطأ في البيانات:\n' + errors.join('\n'));
+                    return;
                 }
                 
-                // Redirect to thank you page with order details
-                const params = new URLSearchParams();
-                params.append('name', formData.name);
-                params.append('phone', formData.phone);
-                params.append('city', formData.city);
-                params.append('cameraType', formData.cameraType);
+                // Show loading state
+                const submitBtn = document.querySelector('#orderForm button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>جاري الإرسال...';
+                submitBtn.disabled = true;
                 
-                window.location.href = 'thanks.html?' + params.toString();
+                try {
+                    // Submit order to backend
+                    const response = await api.createOrder(formData);
+                    
+                    // Redirect to thank you page with order details
+                    const params = new URLSearchParams();
+                    params.append('name', formData.name);
+                    params.append('phone', formData.phone);
+                    params.append('city', formData.city);
+                    params.append('cameraType', formData.cameraType);
+                    params.append('orderId', response.orderId);
+                    
+                    window.location.href = 'thanks.html?' + params.toString();
+                } catch (error) {
+                    console.error('Order submission failed:', error);
+                    alert('حدث خطأ في إرسال الطلب. يرجى المحاولة مرة أخرى.');
+                    
+                    // Restore button state
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
             });
             
             // Remove invalid class when user types

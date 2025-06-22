@@ -520,7 +520,10 @@
             }
             
             if (dateFilter) {
-                filteredOrders = filteredOrders.filter(o => o.date.startsWith(dateFilter));
+                filteredOrders = filteredOrders.filter(o => {
+                    const orderDate = o.created_at || o.date;
+                    return orderDate && orderDate.startsWith(dateFilter);
+                });
             }
             
             if (searchFilter) {
@@ -563,9 +566,10 @@
             `;
             
             filteredOrders.forEach((order, index) => {
-                const formattedDate = formatDate(order.date);
-                const product = order.cameraType === '1149' ? 'كاميرا متطورة' : 'كاميرا عادية';
-                const price = order.cameraType === '1149' ? '1149 درهم' : '999 درهم';
+                const formattedDate = formatDate(order.created_at || order.date);
+                const cameraType = order.camera_type || order.cameraType;
+                const product = cameraType === '1149' ? 'كاميرا متطورة' : 'كاميرا عادية';
+                const price = order.price ? order.price + ' درهم' : (cameraType === '1149' ? '1149 درهم' : '999 درهم');
                 
                 html += `
                     <tr>
@@ -624,9 +628,10 @@
             document.getElementById('detail-name').textContent = order.name;
             document.getElementById('detail-phone').textContent = order.phone;
             document.getElementById('detail-city').textContent = order.city;
-            document.getElementById('detail-product').textContent = order.cameraType === '1149' ? 'كاميرا متطورة' : 'كاميرا عادية';
-            document.getElementById('detail-price').textContent = order.cameraType === '1149' ? '1149 درهم' : '999 درهم';
-            document.getElementById('detail-date').textContent = formatDate(order.date);
+            const cameraType = order.camera_type || order.cameraType;
+            document.getElementById('detail-product').textContent = cameraType === '1149' ? 'كاميرا متطورة' : 'كاميرا عادية';
+            document.getElementById('detail-price').textContent = order.price ? order.price + ' درهم' : (cameraType === '1149' ? '1149 درهم' : '999 درهم');
+            document.getElementById('detail-date').textContent = formatDate(order.created_at || order.date);
             
             // Update status buttons
             const statusButtons = document.querySelectorAll('.status-btn');
@@ -700,15 +705,8 @@
                 if (event.data && event.data.type === 'newOrder') {
                     const order = event.data.order;
                     
-                    // Add new order
-                    orders.unshift({
-                        name: order.name,
-                        phone: order.phone,
-                        city: order.city,
-                        cameraType: order.cameraType,
-                        date: new Date().toISOString(),
-                        status: 'new'
-                    });
+                    // Add new order (handle both formats)
+                    orders.unshift(order);
                     
                     localStorage.setItem('orders', JSON.stringify(orders));
                     updateOrdersCount();

@@ -2788,16 +2788,53 @@
                 submitBtn.disabled = true;
                 
                 try {
-                    // Submit order to backend
-                    const response = await api.createOrder(formData);
+                    let orderId;
                     
-                    // Redirect to thank you page with order details
+                    try {
+                        // Try to submit to backend first
+                        const response = await api.createOrder(formData);
+                        orderId = response.orderId;
+                    } catch (backendError) {
+                        console.log('Backend not available, using localStorage fallback');
+                        
+                        // Fallback to localStorage for GitHub Pages
+                        const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+                        orderId = orders.length + 1;
+                        
+                        const newOrder = {
+                            id: orderId,
+                            name: formData.name,
+                            phone: formData.phone,
+                            city: formData.city,
+                            camera_type: formData.cameraType,
+                            price: formData.cameraType === '1149' ? 1149 : 999,
+                            status: 'new',
+                            created_at: new Date().toISOString()
+                        };
+                        
+                        orders.unshift(newOrder);
+                        localStorage.setItem('orders', JSON.stringify(orders));
+                        
+                        // Notify admin panel if open
+                        try {
+                            if (window.opener) {
+                                window.opener.postMessage({
+                                    type: 'newOrder',
+                                    order: newOrder
+                                }, '*');
+                            }
+                        } catch (err) {
+                            console.log('Admin panel not open');
+                        }
+                    }
+                    
+                    // Redirect to thank you page
                     const params = new URLSearchParams();
                     params.append('name', formData.name);
                     params.append('phone', formData.phone);
                     params.append('city', formData.city);
                     params.append('cameraType', formData.cameraType);
-                    params.append('orderId', response.orderId);
+                    params.append('orderId', orderId);
                     
                     window.location.href = 'thanks.html?' + params.toString();
                 } catch (error) {

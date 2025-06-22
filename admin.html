@@ -14,21 +14,17 @@
             --text-color: #333333;
             --light-bg: #F8F9FA;
             --white: #FFFFFF;
-            --danger: #dc3545;
-            --success: #198754;
-            --warning: #ffc107;
-            --info: #0dcaf0;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background: linear-gradient(-45deg, #f5f7fa, #c3cfe2, #e0e6ed, #f0f4f8);
             background-size: 400% 400%;
             animation: gradientFlow 15s ease infinite;
             min-height: 100vh;
-            padding: 20px 0;
+            padding: 10px 0;
         }
         
         @keyframes gradientFlow {
@@ -40,268 +36,46 @@
         .admin-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 10px;
         }
         
         .admin-header {
             background: linear-gradient(90deg, var(--primary-color), #8ed33f);
             color: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .admin-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: bold;
             margin: 0;
         }
         
         .admin-stats {
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         
         .stat-item {
             background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-        
-        .orders-table {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .table {
-            margin-bottom: 0;
-        }
-        
-        .table th {
-            background: var(--accent-color);
-            color: white;
-            font-weight: 600;
-            border: none;
-            padding: 15px;
-        }
-        
-        .table td {
-            vertical-align: middle;
-            border-color: #eee;
-            padding: 15px;
-        }
-        
-        .status-badge {
             padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            border-radius: 10px;
             font-weight: bold;
-            display: inline-block;
-            min-width: 80px;
-            text-align: center;
-        }
-        
-        .status-new {
-            background-color: #e3f2fd;
-            color: #0d6efd;
-        }
-        
-        .status-processing {
-            background-color: #fff3cd;
-            color: #ffc107;
-        }
-        
-        .status-shipped {
-            background-color: #d1e7dd;
-            color: #198754;
-        }
-        
-        .status-delivered {
-            background-color: #d1e7dd;
-            color: #198754;
-        }
-        
-        .status-cancelled {
-            background-color: #f8d7da;
-            color: #dc3545;
-        }
-        
-        .action-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            margin: 0 2px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .view-btn {
-            background-color: var(--primary-color);
-        }
-        
-        .edit-btn {
-            background-color: #0d6efd;
-        }
-        
-        .delete-btn {
-            background-color: #dc3545;
-        }
-        
-        .action-btn:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-        }
-        
-        .filters {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .form-control, .form-select {
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            padding: 10px 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus, .form-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(115, 194, 28, 0.25);
-        }
-        
-        .btn-primary {
-            background: var(--primary-color);
-            border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background: #5da017;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(115, 194, 28, 0.3);
-        }
-        
-        .btn-secondary {
-            background: var(--accent-color);
-            border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-secondary:hover {
-            background: #1a2530;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
-        }
-        
-        .pagination {
-            margin-top: 20px;
-            justify-content: center;
-        }
-        
-        .page-link {
-            color: var(--primary-color);
-            border-radius: 5px;
-            margin: 0 2px;
-        }
-        
-        .page-item.active .page-link {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-        
-        .order-details {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: none;
-        }
-        
-        .order-details h4 {
-            color: var(--accent-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            font-weight: bold;
-        }
-        
-        .detail-row {
-            margin-bottom: 15px;
-        }
-        
-        .detail-label {
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 5px;
-            display: block;
-        }
-        
-        .detail-value {
-            background: var(--light-bg);
-            padding: 10px 15px;
-            border-radius: 10px;
-            display: block;
-        }
-        
-        .status-select {
-            padding: 10px;
-            border-radius: 10px;
-            border: 2px solid var(--light-bg);
-            width: 100%;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .status-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(115, 194, 28, 0.25);
-            outline: none;
-        }
-        
-        .empty-state {
-            text-align: center;
-            padding: 50px 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .empty-icon {
-            font-size: 5rem;
-            color: #ddd;
-            margin-bottom: 20px;
-        }
-        
-        .empty-text {
-            font-size: 1.5rem;
-            color: #999;
-            margin-bottom: 30px;
+            font-size: 0.9rem;
         }
         
         .login-container {
             max-width: 400px;
-            margin: 100px auto;
+            margin: 50px auto;
             background: white;
             padding: 30px;
             border-radius: 15px;
@@ -320,46 +94,158 @@
             font-weight: bold;
         }
         
+        .nav-tabs {
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        .nav-link {
+            color: var(--accent-color);
+            border: none;
+            padding: 10px 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link.active {
+            background: var(--primary-color);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .filters {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .orders-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .table {
+            margin-bottom: 0;
+            font-size: 0.85rem;
+        }
+        
+        .table th {
+            background: var(--accent-color);
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 10px 5px;
+            font-size: 0.8rem;
+        }
+        
+        .table td {
+            vertical-align: middle;
+            border-color: #eee;
+            padding: 10px 5px;
+        }
+        
+        .status-badge {
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-block;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .status-new { background-color: #e3f2fd; color: #0d6efd; }
+        .status-processing { background-color: #fff3cd; color: #ffc107; }
+        .status-shipped { background-color: #d1e7dd; color: #198754; }
+        .status-delivered { background-color: #d1e7dd; color: #198754; }
+        .status-cancelled { background-color: #f8d7da; color: #dc3545; }
+        
+        .action-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 2px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .view-btn { background-color: var(--primary-color); }
+        .delete-btn { background-color: #dc3545; }
+        
+        .action-btn:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+        
+        .order-details {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+        }
+        
+        .order-details h4 {
+            color: var(--accent-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .detail-row {
+            margin-bottom: 15px;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .detail-value {
+            background: var(--light-bg);
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: block;
+        }
+        
         .status-actions {
             display: flex;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 8px;
+            margin-top: 15px;
+            flex-wrap: wrap;
         }
         
         .status-btn {
             flex: 1;
             padding: 10px;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 0.85rem;
+            min-width: 80px;
         }
         
-        .status-btn-new {
-            background-color: #e3f2fd;
-            color: #0d6efd;
-        }
-        
-        .status-btn-processing {
-            background-color: #fff3cd;
-            color: #ffc107;
-        }
-        
-        .status-btn-shipped {
-            background-color: #d1e7dd;
-            color: #198754;
-        }
-        
-        .status-btn-delivered {
-            background-color: #d1e7dd;
-            color: #198754;
-        }
-        
-        .status-btn-cancelled {
-            background-color: #f8d7da;
-            color: #dc3545;
-        }
+        .status-btn-new { background-color: #e3f2fd; color: #0d6efd; }
+        .status-btn-processing { background-color: #fff3cd; color: #ffc107; }
+        .status-btn-shipped { background-color: #d1e7dd; color: #198754; }
+        .status-btn-delivered { background-color: #d1e7dd; color: #198754; }
+        .status-btn-cancelled { background-color: #f8d7da; color: #dc3545; }
         
         .status-btn:hover {
             transform: translateY(-2px);
@@ -371,65 +257,242 @@
             box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
         
+        .inventory-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            color: var(--text-color);
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .inventory-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .inventory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .customer-name {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+        
+        .order-status {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .inventory-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+        
         .no-orders {
             text-align: center;
-            padding: 50px;
+            padding: 40px;
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .no-orders i {
-            font-size: 5rem;
+            font-size: 3rem;
             color: #ddd;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .no-orders p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #999;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary:hover {
+            background: #5da017;
+        }
+        
+        .btn-secondary {
+            background: var(--accent-color);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .status-actions {
+                flex-direction: column;
+            }
+            
+            .status-btn {
+                min-width: auto;
+            }
+            
+            .table {
+                font-size: 0.75rem;
+            }
+            
+            .action-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="admin-container">
+    <!-- Login Form -->
+    <div class="login-container" id="login-form">
+        <div class="login-logo">
+            <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary-color);"></i>
+        </div>
+        <h2 class="login-title">تسجيل الدخول</h2>
+        <form id="loginForm">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="username" placeholder="اسم المستخدم" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" id="password" placeholder="كلمة المرور" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">تسجيل الدخول</button>
+        </form>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-container" id="admin-content" style="display: none;">
         <div class="admin-header">
-            <h1 class="admin-title">لوحة التحكم - الطلبات</h1>
+            <h1 class="admin-title">لوحة التحكم</h1>
             <div class="admin-stats">
                 <div class="stat-item">الطلبات الجديدة: <span id="new-orders-count">0</span></div>
                 <div class="stat-item">إجمالي الطلبات: <span id="total-orders-count">0</span></div>
+                <button class="btn btn-sm btn-outline-light" onclick="logout()">تسجيل خروج</button>
             </div>
         </div>
         
-        <div class="filters mb-4">
-            <div class="row g-3">
-                <div class="col-md-3">
-                    <label for="status-filter" class="form-label">الحالة</label>
-                    <select class="form-select" id="status-filter">
-                        <option value="">الكل</option>
-                        <option value="new">جديد</option>
-                        <option value="processing">قيد المعالجة</option>
-                        <option value="shipped">تم الشحن</option>
-                        <option value="delivered">تم التوصيل</option>
-                        <option value="cancelled">ملغي</option>
-                    </select>
+        <ul class="nav nav-tabs" id="admin-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#" onclick="showTab('orders')">إدارة الطلبات</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showTab('inventory')">المخزون والعملاء</a>
+            </li>
+        </ul>
+        
+        <div id="orders-tab" class="tab-content">
+            <div class="filters mb-4">
+                <div class="row g-2">
+                    <div class="col-md-3 col-6">
+                        <label for="status-filter" class="form-label">الحالة</label>
+                        <select class="form-select" id="status-filter">
+                            <option value="">الكل</option>
+                            <option value="new">جديد</option>
+                            <option value="processing">قيد المعالجة</option>
+                            <option value="shipped">تم الشحن</option>
+                            <option value="delivered">تم التوصيل</option>
+                            <option value="cancelled">ملغي</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <label for="date-filter" class="form-label">التاريخ</label>
+                        <input type="date" class="form-control" id="date-filter">
+                    </div>
+                    <div class="col-md-4 col-8">
+                        <label for="search-filter" class="form-label">بحث</label>
+                        <input type="text" class="form-control" id="search-filter" placeholder="اسم، رقم هاتف...">
+                    </div>
+                    <div class="col-md-2 col-4 d-flex align-items-end">
+                        <button class="btn btn-primary w-100" id="apply-filter">فلتر</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <label for="date-filter" class="form-label">التاريخ</label>
-                    <input type="date" class="form-control" id="date-filter">
-                </div>
-                <div class="col-md-4">
-                    <label for="search-filter" class="form-label">بحث</label>
-                    <input type="text" class="form-control" id="search-filter" placeholder="اسم، رقم هاتف، مدينة...">
-                </div>
-                <div class="col-md-2 d-flex align-items-end">
-                    <button class="btn btn-primary w-100" id="apply-filter">تطبيق الفلتر</button>
-                </div>
+            </div>
+            
+            <div id="orders-container">
+                <!-- Orders will be displayed here -->
             </div>
         </div>
         
-        <div id="orders-container">
-            <!-- Orders will be displayed here -->
+        <div id="inventory-tab" class="tab-content" style="display: none;">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="delivered-count">0</div>
+                    <div class="stat-label">عملاء اشتروا</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="cancelled-count">0</div>
+                    <div class="stat-label">عملاء ألغوا</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-revenue">0</div>
+                    <div class="stat-label">إجمالي المبيعات (درهم)</div>
+                </div>
+            </div>
+            
+            <div class="inventory-section">
+                <h4>قائمة العملاء</h4>
+                <div id="inventory-container">
+                    <!-- Customer inventory will be displayed here -->
+                </div>
+            </div>
         </div>
         
         <div class="order-details" id="order-details">
@@ -485,12 +548,81 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Initialize orders array
+        // Initialize admin system
         let orders = [];
         let currentOrderId = null;
         let currentStatus = null;
+        let currentTab = 'orders';
+        let isLoggedIn = false;
         
-        // Load orders from localStorage
+        // Check login status
+        function checkLogin() {
+            const loginStatus = localStorage.getItem('admin_logged_in');
+            if (loginStatus === 'true') {
+                isLoggedIn = true;
+                showAdminPanel();
+            } else {
+                showLoginForm();
+            }
+        }
+        
+        // Show login form
+        function showLoginForm() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('admin-content').style.display = 'none';
+        }
+        
+        // Show admin panel
+        function showAdminPanel() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('admin-content').style.display = 'block';
+            loadOrders();
+        }
+        
+        // Handle login
+        function handleLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'admin' && password === '123456789') {
+                localStorage.setItem('admin_logged_in', 'true');
+                isLoggedIn = true;
+                showAdminPanel();
+            } else {
+                alert('اسم المستخدم أو كلمة المرور غير صحيحة');
+            }
+        }
+        
+        // Logout
+        function logout() {
+            localStorage.removeItem('admin_logged_in');
+            isLoggedIn = false;
+            showLoginForm();
+        }
+        
+        // Show tab
+        function showTab(tabName) {
+            currentTab = tabName;
+            
+            // Update tab buttons
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show/hide tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            
+            if (tabName === 'inventory') {
+                loadInventory();
+            }
+        }
+        
+        // Load orders
         function loadOrders() {
             orders = JSON.parse(localStorage.getItem('orders') || '[]');
             updateOrdersCount();
@@ -500,13 +632,19 @@
         // Update orders count
         function updateOrdersCount() {
             const newOrdersCount = orders.filter(o => o.status === 'new').length;
-            document.getElementById('new-orders-count').textContent = newOrdersCount;
-            document.getElementById('total-orders-count').textContent = orders.length;
+            const totalCount = orders.length;
+            
+            const newCountEl = document.getElementById('new-orders-count');
+            const totalCountEl = document.getElementById('total-orders-count');
+            
+            if (newCountEl) newCountEl.textContent = newOrdersCount;
+            if (totalCountEl) totalCountEl.textContent = totalCount;
         }
         
         // Render orders table
         function renderOrders() {
             const container = document.getElementById('orders-container');
+            if (!container) return;
             
             // Apply filters
             const statusFilter = document.getElementById('status-filter').value;
@@ -553,11 +691,10 @@
                             <tr>
                                 <th>#</th>
                                 <th>الاسم</th>
-                                <th>رقم الهاتف</th>
+                                <th>الهاتف</th>
                                 <th>المدينة</th>
                                 <th>المنتج</th>
                                 <th>السعر</th>
-                                <th>التاريخ</th>
                                 <th>الحالة</th>
                                 <th>الإجراءات</th>
                             </tr>
@@ -568,7 +705,7 @@
             filteredOrders.forEach((order, index) => {
                 const formattedDate = formatDate(order.created_at || order.date);
                 const cameraType = order.camera_type || order.cameraType;
-                const product = cameraType === '1149' ? 'كاميرا متطورة' : 'كاميرا عادية';
+                const product = cameraType === '1149' ? 'متطورة' : 'عادية';
                 const price = order.price ? order.price + ' درهم' : (cameraType === '1149' ? '1149 درهم' : '999 درهم');
                 
                 html += `
@@ -579,7 +716,6 @@
                         <td>${order.city}</td>
                         <td>${product}</td>
                         <td>${price}</td>
-                        <td>${formattedDate}</td>
                         <td><span class="status-badge status-${order.status}">${getStatusText(order.status)}</span></td>
                         <td>
                             <button class="action-btn view-btn" onclick="viewOrder(${index})"><i class="fas fa-eye"></i></button>
@@ -608,9 +744,9 @@
         function getStatusText(status) {
             switch(status) {
                 case 'new': return 'جديد';
-                case 'processing': return 'قيد المعالجة';
-                case 'shipped': return 'تم الشحن';
-                case 'delivered': return 'تم التوصيل';
+                case 'processing': return 'معالجة';
+                case 'shipped': return 'شحن';
+                case 'delivered': return 'توصيل';
                 case 'cancelled': return 'ملغي';
                 default: return '';
             }
@@ -628,6 +764,7 @@
             document.getElementById('detail-name').textContent = order.name;
             document.getElementById('detail-phone').textContent = order.phone;
             document.getElementById('detail-city').textContent = order.city;
+            
             const cameraType = order.camera_type || order.cameraType;
             document.getElementById('detail-product').textContent = cameraType === '1149' ? 'كاميرا متطورة' : 'كاميرا عادية';
             document.getElementById('detail-price').textContent = order.price ? order.price + ' درهم' : (cameraType === '1149' ? '1149 درهم' : '999 درهم');
@@ -662,13 +799,84 @@
             }
         }
         
+        // Load inventory
+        function loadInventory() {
+            const deliveredOrders = orders.filter(o => o.status === 'delivered');
+            const cancelledOrders = orders.filter(o => o.status === 'cancelled');
+            const totalRevenue = deliveredOrders.reduce((sum, order) => {
+                const price = order.price || (order.camera_type === '1149' || order.cameraType === '1149' ? 1149 : 999);
+                return sum + price;
+            }, 0);
+            
+            document.getElementById('delivered-count').textContent = deliveredOrders.length;
+            document.getElementById('cancelled-count').textContent = cancelledOrders.length;
+            document.getElementById('total-revenue').textContent = totalRevenue.toLocaleString();
+            
+            // Show customer list
+            const inventoryContainer = document.getElementById('inventory-container');
+            const completedOrders = [...deliveredOrders, ...cancelledOrders];
+            
+            if (completedOrders.length === 0) {
+                inventoryContainer.innerHTML = '<p class="text-center text-muted">لا توجد طلبات مكتملة</p>';
+                return;
+            }
+            
+            let html = '';
+            completedOrders.forEach(order => {
+                const cameraType = order.camera_type || order.cameraType;
+                const product = cameraType === '1149' ? 'الكاميرة المتطورة' : 'الكاميرة العادية';
+                const price = order.price || (cameraType === '1149' ? 1149 : 999);
+                const statusClass = order.status === 'delivered' ? 'status-delivered' : 'status-cancelled';
+                const statusText = order.status === 'delivered' ? 'تم التوصيل' : 'ملغي';
+                
+                html += `
+                    <div class="inventory-card">
+                        <div class="inventory-header">
+                            <div class="customer-name">${order.name}</div>
+                            <div class="order-status ${statusClass}">${statusText}</div>
+                        </div>
+                        <div class="inventory-details">
+                            <div class="detail-item">
+                                <span class="detail-label">رقم الهاتف:</span>
+                                <span class="detail-value">${order.phone}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">المدينة:</span>
+                                <span class="detail-value">${order.city}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">المنتج:</span>
+                                <span class="detail-value">${product}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">السعر:</span>
+                                <span class="detail-value">${price} درهم</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">التاريخ:</span>
+                                <span class="detail-value">${formatDate(order.created_at || order.date)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            inventoryContainer.innerHTML = html;
+        }
+        
         // Initialize event listeners
         document.addEventListener('DOMContentLoaded', function() {
-            // Load orders
-            loadOrders();
+            // Check login status
+            checkLogin();
+            
+            // Login form
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
             
             // Apply filter button
-            document.getElementById('apply-filter').addEventListener('click', renderOrders);
+            const applyFilterBtn = document.getElementById('apply-filter');
+            if (applyFilterBtn) {
+                applyFilterBtn.addEventListener('click', renderOrders);
+            }
             
             // Status buttons
             document.querySelectorAll('.status-btn').forEach(btn => {
@@ -684,21 +892,27 @@
             });
             
             // Save order button
-            document.getElementById('save-order').addEventListener('click', function() {
-                if (currentOrderId !== null && currentStatus) {
-                    orders[currentOrderId].status = currentStatus;
-                    localStorage.setItem('orders', JSON.stringify(orders));
-                    updateOrdersCount();
-                    renderOrders();
-                    alert('تم حفظ التغييرات بنجاح!');
-                    document.getElementById('order-details').style.display = 'none';
-                }
-            });
+            const saveOrderBtn = document.getElementById('save-order');
+            if (saveOrderBtn) {
+                saveOrderBtn.addEventListener('click', function() {
+                    if (currentOrderId !== null && currentStatus) {
+                        orders[currentOrderId].status = currentStatus;
+                        localStorage.setItem('orders', JSON.stringify(orders));
+                        updateOrdersCount();
+                        renderOrders();
+                        alert('تم حفظ التغييرات بنجاح!');
+                        document.getElementById('order-details').style.display = 'none';
+                    }
+                });
+            }
             
             // Close details button
-            document.getElementById('close-details').addEventListener('click', function() {
-                document.getElementById('order-details').style.display = 'none';
-            });
+            const closeDetailsBtn = document.getElementById('close-details');
+            if (closeDetailsBtn) {
+                closeDetailsBtn.addEventListener('click', function() {
+                    document.getElementById('order-details').style.display = 'none';
+                });
+            }
             
             // Listen for new orders from index.html
             window.addEventListener('message', function(event) {
@@ -712,7 +926,9 @@
                     updateOrdersCount();
                     renderOrders();
                     
-                    alert('تم استلام طلب جديد!');
+                    if (isLoggedIn) {
+                        alert('تم استلام طلب جديد!');
+                    }
                 }
             });
         });

@@ -642,18 +642,9 @@
             }
         }
         
-        // Load orders from Google Sheets or localStorage
+        // Load orders securely
         async function loadOrders() {
-            try {
-                // Try to load from Google Sheets first
-                orders = await googleSheets.getOrders();
-                console.log('Orders loaded from Google Sheets');
-            } catch (error) {
-                console.log('Google Sheets not available, using localStorage');
-                // Fallback to localStorage
-                orders = JSON.parse(localStorage.getItem('orders') || '[]');
-            }
-            
+            orders = await orderSystem.getOrders();
             updateOrdersCount();
             renderOrders();
         }

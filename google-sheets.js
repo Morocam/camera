@@ -1,86 +1,50 @@
-// Google Sheets API integration for camera orders
-class GoogleSheetsAPI {
+// Secure order submission without exposed API keys
+class OrderSubmission {
     constructor() {
-        this.apiKey = 'AIzaSyA_4o6Xrbnty-DmEsTyGFGUNJxJIxQyv9Q';
-        this.spreadsheetId = '1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg';
-        this.range = 'Orders!A:H'; // Sheet name and range
+        // No API keys exposed - using localStorage only
     }
 
-    // Submit order to Google Sheets
+    // Submit order securely
     async submitOrder(orderData) {
-        const values = [[
-            new Date().toISOString(),
-            orderData.name,
-            orderData.phone,
-            orderData.city,
-            orderData.cameraType === '1149' ? 'الكاميرة المتطورة' : 'الكاميرة العادية',
-            orderData.cameraType === '1149' ? 1149 : 999,
-            'new',
-            `https://wa.me/212664345640?text=مرحبا، طلب جديد من ${orderData.name} - ${orderData.phone}`
-        ]];
-
-        const body = {
-            values: values
+        // Save to localStorage
+        const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+        const orderId = Date.now();
+        
+        const newOrder = {
+            id: orderId,
+            name: orderData.name,
+            phone: orderData.phone,
+            city: orderData.city,
+            camera_type: orderData.cameraType,
+            price: orderData.cameraType === '1149' ? 1149 : 999,
+            status: 'new',
+            created_at: new Date().toISOString()
         };
-
+        
+        orders.unshift(newOrder);
+        localStorage.setItem('orders', JSON.stringify(orders));
+        
+        // Notify admin panel if open
         try {
-            const response = await fetch(
-                `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/${this.range}:append?valueInputOption=RAW&key=${this.apiKey}`,
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(body)
-                }
-            );
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            if (window.opener) {
+                window.opener.postMessage({
+                    type: 'newOrder',
+                    order: newOrder
+                }, '*');
             }
-
-            const result = await response.json();
-            return { success: true, data: result };
-        } catch (error) {
-            console.error('Error submitting to Google Sheets:', error);
-            throw error;
+        } catch (err) {
+            console.log('Admin panel not open');
         }
+        
+        return { success: true, orderId: orderId };
     }
 
-    // Get orders from Google Sheets (for admin panel)
+    // Get orders from localStorage
     async getOrders() {
-        try {
-            const response = await fetch(
-                `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/${this.range}?key=${this.apiKey}`
-            );
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            const result = await response.json();
-            const rows = result.values || [];
-            
-            // Skip header row and convert to order objects
-            const orders = rows.slice(1).map((row, index) => ({
-                id: index + 1,
-                created_at: row[0] || '',
-                name: row[1] || '',
-                phone: row[2] || '',
-                city: row[3] || '',
-                camera_type: row[4] === 'الكاميرة المتطورة' ? '1149' : '999',
-                price: parseInt(row[5]) || 999,
-                status: row[6] || 'new',
-                whatsapp_link: row[7] || ''
-            }));
-
-            return orders.reverse(); // Show newest first
-        } catch (error) {
-            console.error('Error fetching from Google Sheets:', error);
-            throw error;
-        }
+        const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+        return orders;
     }
 }
 
 // Create global instance
-const googleSheets = new GoogleSheetsAPI();
+const orderSystem = new OrderSubmission();

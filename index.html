@@ -2807,47 +2807,9 @@
                 submitBtn.disabled = true;
                 
                 try {
-                    let orderId;
-                    
-                    try {
-                        // Submit to Google Sheets
-                        const response = await googleSheets.submitOrder(formData);
-                        orderId = Date.now(); // Use timestamp as order ID
-                        
-                        console.log('Order submitted to Google Sheets successfully');
-                    } catch (sheetsError) {
-                        console.log('Google Sheets not available, using localStorage fallback');
-                        
-                        // Fallback to localStorage
-                        const orders = JSON.parse(localStorage.getItem('orders') || '[]');
-                        orderId = orders.length + 1;
-                        
-                        const newOrder = {
-                            id: orderId,
-                            name: formData.name,
-                            phone: formData.phone,
-                            city: formData.city,
-                            camera_type: formData.cameraType,
-                            price: formData.cameraType === '1149' ? 1149 : 999,
-                            status: 'new',
-                            created_at: new Date().toISOString()
-                        };
-                        
-                        orders.unshift(newOrder);
-                        localStorage.setItem('orders', JSON.stringify(orders));
-                        
-                        // Notify admin panel if open
-                        try {
-                            if (window.opener) {
-                                window.opener.postMessage({
-                                    type: 'newOrder',
-                                    order: newOrder
-                                }, '*');
-                            }
-                        } catch (err) {
-                            console.log('Admin panel not open');
-                        }
-                    }
+                    // Submit order securely
+                    const response = await orderSystem.submitOrder(formData);
+                    const orderId = response.orderId;
                     
                     // Track Facebook Pixel Purchase event
                     if (typeof fbq !== 'undefined') {

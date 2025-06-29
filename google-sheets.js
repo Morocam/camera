@@ -2,7 +2,7 @@
 class GoogleSheetsAPI {
     constructor() {
         this.apiKey = 'AIzaSyA_4o6Xrbnty-DmEsTyGFGUNJxJIxQyv9Q';
-        this.spreadsheetId = '1BQXew0u2s2hs-FuBdWr7HbBkT7_MmhMekluGB7wUxaA'; // You need to create this
+        this.spreadsheetId = '1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg';
         this.range = 'Orders!A:H'; // Sheet name and range
     }
 

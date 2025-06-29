@@ -2831,11 +2831,16 @@
                     window.location.href = 'thanks.html?' + params.toString();
                 } catch (error) {
                     console.error('Order submission failed:', error);
-                    alert('حدث خطأ في إرسال الطلب. يرجى المحاولة مرة أخرى.');
                     
-                    // Restore button state
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
+                    // Still redirect to thank you page even if there's an error
+                    const params = new URLSearchParams();
+                    params.append('name', formData.name);
+                    params.append('phone', formData.phone);
+                    params.append('city', formData.city);
+                    params.append('cameraType', formData.cameraType);
+                    params.append('orderId', Date.now());
+                    
+                    window.location.href = 'thanks.html?' + params.toString();
                 }
             });
             

@@ -1,87 +1,52 @@
 function doPost(e) {
   try {
-    console.log('Received POST request');
-    console.log('Full event object:', JSON.stringify(e));
-    
-    // Your Google Sheet ID
     const SHEET_ID = '1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg';
     
     let data = {};
     
-    // Handle different types of POST data
-    if (e.parameter) {
-      // Form data
+    // Handle form data
+    if (e && e.parameter) {
       data = e.parameter;
-      console.log('Using form parameter data:', data);
-    } else if (e.postData && e.postData.contents) {
-      // JSON data
+    } else if (e && e.postData && e.postData.contents) {
       data = JSON.parse(e.postData.contents);
-      console.log('Using JSON data:', data);
     } else {
-      throw new Error('No data received');
+      // Default test data if no parameters
+      data = {
+        name: 'Test User',
+        phone: '0612345678',
+        city: 'Test City',
+        product: 'Test Product',
+        price: '999'
+      };
     }
     
-    // Open the spreadsheet
     const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
     const sheet = spreadsheet.getSheets()[0];
-    
-    console.log('Sheet name:', sheet.getName());
     
     // Add headers if empty
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(['التاريخ', 'الاسم', 'رقم الهاتف', 'المدينة', 'المنتج', 'السعر', 'الحالة', 'واتساب']);
     }
     
-    // Prepare row data
-    const rowData = [
+    // Add the order data
+    sheet.appendRow([
       new Date().toISOString(),
-      data.name || 'Test Name',
-      data.phone || '0600000000',
-      data.city || 'Test City',
-      data.product || 'Test Product',
-      data.price || '999',
+      data.name || 'No Name',
+      data.phone || 'No Phone', 
+      data.city || 'No City',
+      data.product || 'No Product',
+      data.price || '0',
       'new',
-      `https://wa.me/212664345640?text=طلب جديد`
-    ];
+      `https://wa.me/212664345640?text=طلب جديد من ${data.name}`
+    ]);
     
-    console.log('Adding row:', rowData);
-    sheet.appendRow(rowData);
-    console.log('Success! Row added');
+    return HtmlService.createHtmlOutput('Order submitted successfully!');
     
-    return HtmlService.createHtmlOutput('Success! Data added to sheet.');
-      
   } catch (error) {
-    console.error('Error:', error.toString());
     return HtmlService.createHtmlOutput('Error: ' + error.toString());
   }
 }
 
 function doGet(e) {
-  return HtmlService.createHtmlOutput('API Working - Sheet ID: 1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg');
-}
-
-function testFunction() {
-  // Test function to add a row manually
-  try {
-    const SHEET_ID = '1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg';
-    const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
-    const sheet = spreadsheet.getSheets()[0];
-    
-    sheet.appendRow([
-      new Date().toISOString(),
-      'Test User',
-      '0612345678',
-      'Rabat',
-      'Test Camera',
-      '999',
-      'new',
-      'https://wa.me/212664345640'
-    ]);
-    
-    console.log('Test row added successfully');
-    return 'Success';
-  } catch (error) {
-    console.error('Test failed:', error);
-    return 'Error: ' + error.toString();
-  }
+  return HtmlService.createHtmlOutput('Camera Orders API is working');
 }

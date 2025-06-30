@@ -3,12 +3,12 @@ function doPost(e) {
     // Your Google Sheet ID
     const SHEET_ID = '1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg';
     
-    // Parse the incoming data
-    const data = JSON.parse(e.postData.contents);
+    // Parse the incoming data (from form submission)
+    const data = e.parameter; // Use e.parameter for form data, not JSON
     
     // Open the spreadsheet and get the first sheet
     const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
-    const sheet = spreadsheet.getSheets()[0]; // Get first sheet regardless of name
+    const sheet = spreadsheet.getSheets()[0];
     
     // Add headers if sheet is empty
     if (sheet.getLastRow() === 0) {
@@ -30,21 +30,15 @@ function doPost(e) {
     // Add the data to the sheet
     sheet.appendRow(rowData);
     
-    // Return success response
-    return ContentService
-      .createTextOutput(JSON.stringify({success: true, message: 'Order added successfully'}))
-      .setMimeType(ContentService.MimeType.JSON);
+    // Return success response (redirect back to thank you page)
+    return HtmlService.createHtmlOutput('<script>window.close();</script>');
       
   } catch (error) {
     // Return error response
-    return ContentService
-      .createTextOutput(JSON.stringify({success: false, error: error.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return HtmlService.createHtmlOutput('<script>alert("Error: ' + error.toString() + '"); window.close();</script>');
   }
 }
 
 function doGet(e) {
-  return ContentService
-    .createTextOutput(JSON.stringify({message: 'Camera Orders API Working'}))
-    .setMimeType(ContentService.MimeType.JSON);
+  return HtmlService.createHtmlOutput('Camera Orders API Working');
 }

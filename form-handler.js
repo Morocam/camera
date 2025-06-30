@@ -10,7 +10,14 @@ class SecureFormHandler {
         console.log('SecureFormHandler: Form data received:', formData);
         
         try {
-            const payload = {
+            // Create a hidden form to bypass CORS
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = this.serverEndpoint;
+            form.style.display = 'none';
+            
+            // Add form fields
+            const fields = {
                 name: formData.name,
                 phone: formData.phone,
                 city: formData.city,
@@ -19,32 +26,26 @@ class SecureFormHandler {
                 timestamp: new Date().toISOString()
             };
             
-            console.log('SecureFormHandler: Sending payload:', payload);
-            
-            // Submit to secure server endpoint
-            const response = await fetch(this.serverEndpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload)
+            Object.keys(fields).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = fields[key];
+                form.appendChild(input);
             });
             
-            console.log('SecureFormHandler: Response status:', response.status);
-            console.log('SecureFormHandler: Response ok:', response.ok);
-
-            if (response.ok) {
-                const result = await response.text();
-                console.log('SecureFormHandler: Success response:', result);
-                return { success: true };
-            } else {
-                const errorText = await response.text();
-                console.error('SecureFormHandler: Server error response:', errorText);
-                throw new Error('Server error: ' + response.status);
-            }
+            // Submit form
+            document.body.appendChild(form);
+            form.submit();
+            
+            // Clean up
+            setTimeout(() => {
+                document.body.removeChild(form);
+            }, 1000);
+            
+            return { success: true };
         } catch (error) {
             console.error('SecureFormHandler: Error occurred:', error);
-            alert('Error submitting to Google Sheets: ' + error.message);
             
             // Fallback to localStorage
             const orders = JSON.parse(localStorage.getItem('orders') || '[]');
@@ -62,7 +63,6 @@ class SecureFormHandler {
             orders.unshift(newOrder);
             localStorage.setItem('orders', JSON.stringify(orders));
             
-            alert('Saved to localStorage as fallback');
             return { success: true, fallback: true };
         }
     }

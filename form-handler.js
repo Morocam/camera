@@ -2,7 +2,7 @@
 class SecureFormHandler {
     constructor() {
         // Using a secure server endpoint (you'll need to set this up)
-        this.serverEndpoint = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+        this.serverEndpoint = 'https://script.google.com/macros/s/AKfycbyhL9Ah6OXiMPOaPQkZmYd9kB017vYFdwzGMAruhA99eLNeQKlSHHoKBalah3DKCbJr/exec';
     }
 
     async submitOrder(formData) {

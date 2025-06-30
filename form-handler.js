@@ -6,27 +6,41 @@ class SecureFormHandler {
     }
 
     async submitOrder(formData) {
+        console.log('SecureFormHandler: Starting submission to:', this.serverEndpoint);
+        console.log('SecureFormHandler: Form data received:', formData);
+        
         try {
+            const payload = {
+                name: formData.name,
+                phone: formData.phone,
+                city: formData.city,
+                product: formData.cameraType === '1149' ? 'الكاميرة المتطورة' : 'الكاميرة العادية',
+                price: formData.cameraType === '1149' ? 1149 : 999,
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('SecureFormHandler: Sending payload:', payload);
+            
             // Submit to secure server endpoint
             const response = await fetch(this.serverEndpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    name: formData.name,
-                    phone: formData.phone,
-                    city: formData.city,
-                    product: formData.cameraType === '1149' ? 'الكاميرة المتطورة' : 'الكاميرة العادية',
-                    price: formData.cameraType === '1149' ? 1149 : 999,
-                    timestamp: new Date().toISOString()
-                })
+                body: JSON.stringify(payload)
             });
+            
+            console.log('SecureFormHandler: Response status:', response.status);
+            console.log('SecureFormHandler: Response ok:', response.ok);
 
             if (response.ok) {
+                const result = await response.text();
+                console.log('SecureFormHandler: Success response:', result);
                 return { success: true };
             } else {
-                throw new Error('Server error');
+                const errorText = await response.text();
+                console.error('SecureFormHandler: Server error response:', errorText);
+                throw new Error('Server error: ' + response.status);
             }
         } catch (error) {
             // Fallback to localStorage

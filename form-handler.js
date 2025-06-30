@@ -1,8 +1,8 @@
-// Secure form handler that submits to Google Sheets via server
+// Direct Google Sheets form handler
 class SecureFormHandler {
     constructor() {
-        // Using a secure server endpoint (you'll need to set this up)
         this.serverEndpoint = 'https://script.google.com/macros/s/AKfycbyhL9Ah6OXiMPOaPQkZmYd9kB017vYFdwzGMAruhA99eLNeQKlSHHoKBalah3DKCbJr/exec';
+        console.log('FormHandler initialized with endpoint:', this.serverEndpoint);
     }
 
     async submitOrder(formData) {
@@ -43,6 +43,9 @@ class SecureFormHandler {
                 throw new Error('Server error: ' + response.status);
             }
         } catch (error) {
+            console.error('SecureFormHandler: Error occurred:', error);
+            alert('Error submitting to Google Sheets: ' + error.message);
+            
             // Fallback to localStorage
             const orders = JSON.parse(localStorage.getItem('orders') || '[]');
             const newOrder = {
@@ -59,6 +62,7 @@ class SecureFormHandler {
             orders.unshift(newOrder);
             localStorage.setItem('orders', JSON.stringify(orders));
             
+            alert('Saved to localStorage as fallback');
             return { success: true, fallback: true };
         }
     }

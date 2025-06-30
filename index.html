@@ -2814,11 +2814,13 @@
                 submitBtn.disabled = true;
                 
                 try {
+                    alert('Form submitted! Check console for details.');
                     console.log('Submitting form data:', formData);
                     
                     // Submit order securely to Google Sheets
                     const response = await secureForm.submitOrder(formData);
                     console.log('Form submission response:', response);
+                    alert('Response received: ' + JSON.stringify(response));
                     
                     const orderId = Date.now();
                     

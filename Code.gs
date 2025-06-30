@@ -1,93 +1,87 @@
 function doPost(e) {
   try {
-    // Log the incoming request for debugging
     console.log('Received POST request');
-    console.log('Parameters:', e.parameter);
+    console.log('Full event object:', JSON.stringify(e));
     
     // Your Google Sheet ID
     const SHEET_ID = '1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg';
     
-    // Get the data from form submission
-    const data = e.parameter;
+    let data = {};
+    
+    // Handle different types of POST data
+    if (e.parameter) {
+      // Form data
+      data = e.parameter;
+      console.log('Using form parameter data:', data);
+    } else if (e.postData && e.postData.contents) {
+      // JSON data
+      data = JSON.parse(e.postData.contents);
+      console.log('Using JSON data:', data);
+    } else {
+      throw new Error('No data received');
+    }
     
     // Open the spreadsheet
     const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
-    const sheet = spreadsheet.getSheets()[0]; // Get first sheet
+    const sheet = spreadsheet.getSheets()[0];
     
     console.log('Sheet name:', sheet.getName());
-    console.log('Current rows:', sheet.getLastRow());
     
-    // Add headers if this is the first row
+    // Add headers if empty
     if (sheet.getLastRow() === 0) {
-      const headers = ['التاريخ', 'الاسم', 'رقم الهاتف', 'المدينة', 'المنتج', 'السعر', 'الحالة', 'واتساب'];
-      sheet.appendRow(headers);
-      console.log('Headers added');
+      sheet.appendRow(['التاريخ', 'الاسم', 'رقم الهاتف', 'المدينة', 'المنتج', 'السعر', 'الحالة', 'واتساب']);
     }
     
-    // Prepare the row data
+    // Prepare row data
     const rowData = [
-      data.timestamp || new Date().toISOString(),
-      data.name || 'No Name',
-      data.phone || 'No Phone',
-      data.city || 'No City',
-      data.product || 'No Product',
-      data.price || '0',
+      new Date().toISOString(),
+      data.name || 'Test Name',
+      data.phone || '0600000000',
+      data.city || 'Test City',
+      data.product || 'Test Product',
+      data.price || '999',
       'new',
-      `https://wa.me/212664345640?text=طلب جديد من ${data.name || 'عميل'}`
+      `https://wa.me/212664345640?text=طلب جديد`
     ];
     
     console.log('Adding row:', rowData);
-    
-    // Add the data to the sheet
     sheet.appendRow(rowData);
+    console.log('Success! Row added');
     
-    console.log('Row added successfully');
-    console.log('New row count:', sheet.getLastRow());
-    
-    // Return success page
-    return HtmlService.createHtmlOutput(`
-      <html>
-        <body>
-          <h2>Success!</h2>
-          <p>Data added to sheet successfully!</p>
-          <p>Row added: ${JSON.stringify(rowData)}</p>
-          <script>
-            setTimeout(function() {
-              window.close();
-            }, 3000);
-          </script>
-        </body>
-      </html>
-    `);
+    return HtmlService.createHtmlOutput('Success! Data added to sheet.');
       
   } catch (error) {
-    console.error('Error:', error);
-    
-    // Return error page
-    return HtmlService.createHtmlOutput(`
-      <html>
-        <body>
-          <h2>Error!</h2>
-          <p>Error: ${error.toString()}</p>
-          <script>
-            setTimeout(function() {
-              window.close();
-            }, 5000);
-          </script>
-        </body>
-      </html>
-    `);
+    console.error('Error:', error.toString());
+    return HtmlService.createHtmlOutput('Error: ' + error.toString());
   }
 }
 
 function doGet(e) {
-  return HtmlService.createHtmlOutput(`
-    <html>
-      <body>
-        <h2>Camera Orders API</h2>
-        <p>API is working!</p>
-        <p>Sheet ID: 1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg</p>
-      </body>
-    </html>
-  `);
+  return HtmlService.createHtmlOutput('API Working - Sheet ID: 1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg');
+}
+
+function testFunction() {
+  // Test function to add a row manually
+  try {
+    const SHEET_ID = '1y0Lf12GqjuhaLbI9n0JCi3C1u1LK036IV1XyZpTKoVg';
+    const spreadsheet = SpreadsheetApp.openById(SHEET_ID);
+    const sheet = spreadsheet.getSheets()[0];
+    
+    sheet.appendRow([
+      new Date().toISOString(),
+      'Test User',
+      '0612345678',
+      'Rabat',
+      'Test Camera',
+      '999',
+      'new',
+      'https://wa.me/212664345640'
+    ]);
+    
+    console.log('Test row added successfully');
+    return 'Success';
+  } catch (error) {
+    console.error('Test failed:', error);
+    return 'Error: ' + error.toString();
+  }
 }

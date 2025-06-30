@@ -10,10 +10,17 @@ class SecureFormHandler {
         console.log('SecureFormHandler: Form data received:', formData);
         
         try {
-            // Create a hidden form to bypass CORS
+            // Create iframe to submit form without page redirect
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.name = 'hidden_iframe';
+            document.body.appendChild(iframe);
+            
+            // Create form that targets the iframe
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = this.serverEndpoint;
+            form.target = 'hidden_iframe';
             form.style.display = 'none';
             
             // Add form fields
@@ -26,6 +33,8 @@ class SecureFormHandler {
                 timestamp: new Date().toISOString()
             };
             
+            console.log('Submitting to Google Apps Script:', fields);
+            
             Object.keys(fields).forEach(key => {
                 const input = document.createElement('input');
                 input.type = 'hidden';
@@ -34,14 +43,15 @@ class SecureFormHandler {
                 form.appendChild(input);
             });
             
-            // Submit form
+            // Submit form to iframe
             document.body.appendChild(form);
             form.submit();
             
-            // Clean up
+            // Clean up after 2 seconds
             setTimeout(() => {
-                document.body.removeChild(form);
-            }, 1000);
+                if (document.body.contains(form)) document.body.removeChild(form);
+                if (document.body.contains(iframe)) document.body.removeChild(iframe);
+            }, 2000);
             
             return { success: true };
         } catch (error) {

@@ -2793,10 +2793,17 @@
                     cameraType: document.querySelector('input[name="cameraType"]:checked').value
                 };
                 
-                // Validate form data
-                const errors = api.validateOrder(formData);
-                if (errors.length > 0) {
-                    alert('خطأ في البيانات:\n' + errors.join('\n'));
+                // Basic validation
+                if (!formData.name || formData.name.length < 2) {
+                    alert('يرجى إدخال اسم صحيح');
+                    return;
+                }
+                if (!formData.phone || !/^[0-9]{10}$/.test(formData.phone)) {
+                    alert('يرجى إدخال رقم هاتف صحيح');
+                    return;
+                }
+                if (!formData.city || formData.city.length < 2) {
+                    alert('يرجى إدخال المدينة');
                     return;
                 }
                 

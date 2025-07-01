@@ -2664,7 +2664,7 @@
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/js/lightgallery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/dist/css/lightgallery.min.css">
-    <script src="form-handler.js"></script>
+    <script src="email-handler.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Hide preloader
@@ -2817,8 +2817,8 @@
                     alert('Form submitted! Check console for details.');
                     console.log('Submitting form data:', formData);
                     
-                    // Submit order securely to Google Sheets
-                    const response = await secureForm.submitOrder(formData);
+                    // Submit order via email
+                    const response = await emailForm.submitOrder(formData);
                     console.log('Form submission response:', response);
                     alert('Response received: ' + JSON.stringify(response));
                     
